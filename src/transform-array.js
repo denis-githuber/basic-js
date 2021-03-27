@@ -9,7 +9,46 @@ let del = 'del';
 
   newArr.forEach((element, index) => {
 
-    if (element == '--discard-next') {
+    switch(element) {
+
+      case '--discard-next':
+        if (index != newArr.length - 1) {
+          newArr[index] = del;
+          newArr[index + 1] = del;
+        } else {
+          newArr[index] = del;
+        }
+        break;
+
+        case '--discard-prev':
+          if (index != 0) {
+            newArr[index] = del;
+            newArr[index - 1] = del;
+          } else {
+            newArr[index] = del;
+          }
+          break;
+
+        case '--double-next':
+          if (index != newArr.length - 1) {
+            newArr[index] = newArr[index + 1]
+          } else {
+            newArr[index] = del
+          }
+          break;
+
+        case '--double-prev':
+          if (index != 0) {
+            newArr[index] = newArr[index - 1]
+          } else {
+            newArr[index] = del;
+          }
+          break;
+
+
+    }
+
+    /* if (element == '--discard-next') {
       if (index != newArr.length - 1) {
         newArr[index] = del;
         newArr[index + 1] = del;
@@ -38,7 +77,7 @@ let del = 'del';
       } else {
         newArr[index] = del;
       }
-    }
+    } */
 
   });
  
